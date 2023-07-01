@@ -30,9 +30,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
-
       - name: Run type checking
         run: pnpm run check
 
@@ -42,8 +39,5 @@ jobs:
       - name: Run linting
         run: pnpm run lint
 
-      - name: Run integration tests
-        run: pnpm run test:integration
-
-      - name: Run unit tests
-        run: pnpm run test:unit
+      - name: Run tests
+        run: pnpm run test
