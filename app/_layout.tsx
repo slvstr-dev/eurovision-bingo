@@ -1,8 +1,8 @@
-import { Stack } from 'expo-router';
+import { Slot } from 'expo-router';
 
-export default function Layout() {
+export default function RootLayout() {
   return (
-    <Stack
+    <Slot
       screenOptions={{
         headerStyle: {
           backgroundColor: '#f4511e',

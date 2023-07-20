@@ -1,9 +1,30 @@
+// app/Index.tsx
+import React from 'react';
 import { Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function Home() {
+const storybookEnabled = process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === 'true';
+
+const IndexPage = () => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
+    <SafeAreaView>
+      <Text>Hello world</Text>
+    </SafeAreaView>
   );
+};
+
+let EntryPoint = IndexPage;
+
+if (storybookEnabled) {
+  const StorybookUI = require('../.storybook').default;
+
+  EntryPoint = () => {
+    return (
+      <View style={{ flex: 1 }}>
+        <StorybookUI />
+      </View>
+    );
+  };
 }
+
+export default EntryPoint;
