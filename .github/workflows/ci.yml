@@ -3,30 +3,33 @@ name: 🛂 CI/CD
 on:
   pull_request:
     branches:
-      - "**"
+      - '**'
 
 jobs:
   build:
     name: ⚗️ Lint, typecheck and format
     runs-on: ubuntu-latest
     steps:
-      - name: 🗃️ Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: 🛸 Setup PNPM
+      - name: Setup PNPM
         uses: pnpm/action-setup@v2
 
-      - name: 🏭 Setup Node
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "lts/*"
-          cache: "pnpm"
+          node-version: 'lts/*'
+          cache: 'pnpm'
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         run: pnpm install
 
-      - name: 🩻 Check types
+      - name: Check types
         run: pnpm run tsc
 
-      - name: 🧬 Format files
+      - name: Lint files
+        run: pnpm run lint
+
+      - name: Format files
         run: pnpm run format
