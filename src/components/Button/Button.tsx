@@ -1,29 +1,62 @@
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import React, { PropsWithChildren } from 'react';
+import { Text, Pressable } from 'react-native';
+import { tv } from 'tailwind-variants';
 
-export type ButtonProps = {
+export type ButtonProps = PropsWithChildren & {
   onPress?: () => void;
   text: string;
   disabled?: boolean;
 };
 
-export const Button = ({ onPress, text, disabled }: ButtonProps) => {
+export const Button = ({ onPress, disabled, children }: ButtonProps) => {
+  const { base, text } = button({ size: 'sm', color: 'secondary', isDisabled: disabled });
+
   return (
-    <TouchableOpacity
-      style={[styles.container, { opacity: disabled ? 0.3 : 1 }]}
-      onPress={onPress}
-      activeOpacity={0.8}
-      disabled={disabled}>
-      <Text style={styles.text}>{text}</Text>
-    </TouchableOpacity>
+    <Pressable className={base()} onPress={onPress} disabled={disabled}>
+      <Text className={text()}>{children}</Text>
+    </Pressable>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    backgroundColor: 'purple',
-    borderRadius: 8,
+const button = tv({
+  slots: {
+    base: 'font-medium rounded-full active:opacity-80',
+    text: 'text-white',
   },
-  text: { color: 'white' },
+  variants: {
+    color: {
+      primary: {
+        base: 'bg-amber-500',
+      },
+      secondary: {
+        base: 'bg-red-500',
+      },
+    },
+    size: {
+      sm: {
+        text: 'text-sm',
+      },
+      md: {
+        text: 'text-base',
+      },
+      lg: {
+        text: 'px-4 py-3 text-lg',
+      },
+    },
+    isDisabled: {
+      true: {
+        base: 'bg-gray-500',
+      },
+    },
+  },
+  compoundVariants: [
+    {
+      size: ['sm', 'md'],
+      class: 'px-3 py-1',
+    },
+  ],
+  defaultVariants: {
+    size: 'md',
+    color: 'primary',
+  },
 });

@@ -8,7 +8,7 @@ const meta: Meta<ButtonProps> = {
   title: 'Button',
   component: Button,
   args: {
-    text: 'Tap me',
+    children: 'Tap me',
   },
   argTypes: {
     onPress: {

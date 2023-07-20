@@ -3,4 +3,5 @@
 Europe start playing bingo... now!
 
 ## TODO
-- Update Prettier & ESLint when universe/native is updated 
+
+- Update Prettier & ESLint when universe/native is updated
