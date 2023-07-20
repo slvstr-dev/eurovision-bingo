@@ -64,5 +64,6 @@
         "@react-native-community/datetimepicker"
       ]
     }
-  }
+  },
+  "packageManager": "pnpm@8.6.9"
 }
