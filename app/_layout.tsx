@@ -1,11 +1,15 @@
 import { Stack } from 'expo-router';
 import { IntlProvider } from 'use-intl';
 
-import translations from '../src/languages/en-GB/index';
+const messages = {
+  app: {
+    hello: 'Hello {username}!',
+  },
+};
 
 export default function Layout() {
   return (
-    <IntlProvider messages={translations} locale="en-GB">
+    <IntlProvider messages={messages} locale="en">
       <Stack
         screenOptions={{
           headerStyle: {
