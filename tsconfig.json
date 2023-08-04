@@ -4,7 +4,7 @@
     "paths": {
       "@/assets/*": ["./src/assets/*"],
       "@/components/*": ["./src/components/*"],
-      "@/languages/*": ["./src/languages/*"],
+      "@/locales/*": ["./src/locales/*"],
       "@/*": ["src/*"]
     },
     "extendedDiagnostics": true

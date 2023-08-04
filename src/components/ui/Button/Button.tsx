@@ -1,18 +1,22 @@
 import React, { PropsWithChildren } from 'react';
 import { Text, Pressable } from 'react-native';
-import { tv } from 'tailwind-variants';
+import { VariantProps, tv } from 'tailwind-variants';
 
-export type ButtonProps = PropsWithChildren & {
+import { cn } from '@/utils/tailwindUtils';
+
+export type ButtonVariants = VariantProps<typeof button>;
+
+export type ButtonProps = PropsWithChildren<ButtonVariants> & {
+  className?: string;
   onPress?: () => void;
-  text: string;
   disabled?: boolean;
 };
 
-export const Button = ({ onPress, disabled, children }: ButtonProps) => {
+export const Button = ({ onPress, disabled, children, className }: ButtonProps) => {
   const { base, text } = button({ size: 'sm', color: 'secondary', isDisabled: disabled });
 
   return (
-    <Pressable className={base()} onPress={onPress} disabled={disabled}>
+    <Pressable className={cn(base(), className)} onPress={onPress} disabled={disabled}>
       <Text className={text()}>{children}</Text>
     </Pressable>
   );

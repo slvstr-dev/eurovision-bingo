@@ -1,0 +1,13 @@
+{
+  "pages": {
+    "home": {
+      "title": "Hallo {{name}}"
+    }
+  },
+  "components": {
+    "localeToggle": {
+      "en": "English",
+      "nl": "Dutch"
+    }
+  }
+}
