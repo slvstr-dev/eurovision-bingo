@@ -1,8 +1,8 @@
-import { meta } from './common/meta';
+import { home } from './pages/home';
 
 const translations = {
-  common: {
-    meta,
+  pages: {
+    home,
   },
 };
 

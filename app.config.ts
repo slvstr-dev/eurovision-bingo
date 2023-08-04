@@ -15,8 +15,10 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     backgroundColor: '#ffffff',
   },
   assetBundlePatterns: ['**/*'],
+  jsEngine: 'hermes',
   ios: {
     supportsTablet: true,
+    jsEngine: 'jsc',
   },
   android: {
     adaptiveIcon: {
@@ -28,6 +30,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     favicon: './src/assets/favicon.png',
     bundler: 'metro',
   },
+  plugins: ['expo-router'],
   experiments: {
     tsconfigPaths: true,
   },
