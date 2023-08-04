@@ -7,7 +7,7 @@ import { useTranslations } from 'use-intl';
 const storybookEnabled = process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === 'true';
 
 export default function IndexPage() {
-  const t = useTranslations('app');
+  const t = useTranslations('pages.home');
 
   if (storybookEnabled) {
     const StorybookUI = require('../.storybook').default;
@@ -21,7 +21,7 @@ export default function IndexPage() {
 
   return (
     <SafeAreaView className="flex-1 items-center justify-center bg-grey-200">
-      <Text className="text-5xl font-semibold">{t('hello', { username: 'world' })}</Text>
+      <Text className="text-5xl font-semibold">{t('title', { name: 'world' })}</Text>
 
       <StatusBar style="auto" />
     </SafeAreaView>
