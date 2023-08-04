@@ -5,6 +5,15 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@formatjs/intl-displaynames':
+    specifier: ^6.5.0
+    version: 6.5.0
+  '@formatjs/intl-locale':
+    specifier: ^3.3.2
+    version: 3.3.2
+  '@formatjs/intl-pluralrules':
+    specifier: ^5.2.4
+    version: 5.2.4
   '@storybook/core-common':
     specifier: 6.5.16
     version: 6.5.16(eslint@8.46.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)
@@ -20,21 +29,30 @@ dependencies:
   expo-linking:
     specifier: ^5.0.2
     version: 5.0.2(expo@49.0.6)
+  expo-localization:
+    specifier: ~14.3.0
+    version: 14.3.0(expo@49.0.6)
   expo-router:
     specifier: ^2.0.0
     version: 2.0.0(expo-constants@14.4.2)(expo-linking@5.0.2)(expo-modules-autolinking@1.5.0)(expo-status-bar@1.6.0)(expo@49.0.6)(metro@0.76.7)(react-dom@18.2.0)(react-native-gesture-handler@2.12.1)(react-native-safe-area-context@4.6.3)(react-native-screens@3.22.1)(react-native@0.72.3)(react@18.2.0)
   expo-status-bar:
     specifier: ~1.6.0
     version: 1.6.0
+  i18next:
+    specifier: ^23.4.1
+    version: 23.4.1
   nativewind:
     specifier: ^2.0.11
-    version: 2.0.11(react@18.2.0)(tailwindcss@3.3.3)
+    version: 2.0.11(react@18.2.0)(tailwindcss@3.3.2)
   react:
     specifier: 18.2.0
     version: 18.2.0
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
+  react-i18next:
+    specifier: ^13.0.3
+    version: 13.0.3(i18next@23.4.1)(react-dom@18.2.0)(react-native@0.72.3)(react@18.2.0)
   react-native:
     specifier: 0.72.3
     version: 0.72.3(@babel/core@7.22.9)(@babel/preset-env@7.22.9)(react@18.2.0)
@@ -49,13 +67,10 @@ dependencies:
     version: 0.19.6(react-dom@18.2.0)(react@18.2.0)
   tailwind-variants:
     specifier: ^0.1.13
-    version: 0.1.13(tailwindcss@3.3.3)
+    version: 0.1.13(tailwindcss@3.3.2)
   typescript:
     specifier: ^5.1.6
     version: 5.1.6
-  use-intl:
-    specifier: ^2.19.1
-    version: 2.19.1(react@18.2.0)
 
 devDependencies:
   '@babel/core':
@@ -88,6 +103,9 @@ devDependencies:
   babel-loader:
     specifier: ^8.3.0
     version: 8.3.0(@babel/core@7.22.9)(webpack@5.88.2)
+  clsx:
+    specifier: ^2.0.0
+    version: 2.0.0
   eslint:
     specifier: ^8.46.0
     version: 8.46.0
@@ -100,9 +118,12 @@ devDependencies:
   react-native-safe-area-context:
     specifier: ^4.6.3
     version: 4.6.3(react-native@0.72.3)(react@18.2.0)
+  tailwind-merge:
+    specifier: ^1.14.0
+    version: 1.14.0
   tailwindcss:
-    specifier: 3.3.3
-    version: 3.3.3
+    specifier: 3.3.2
+    version: 3.3.2
 
 packages:
   /@aashutoshrathi/word-wrap@1.2.6:
@@ -2609,16 +2630,6 @@ packages:
       js-yaml: 4.1.0
     dev: false
 
-  /@formatjs/ecma402-abstract@1.11.4:
-    resolution:
-      {
-        integrity: sha512-EBikYFp2JCdIfGEb5G9dyCkTGDmC57KSHhRQOC3aYxoPWVZvfWCDjZwkGYHN7Lis/fmuWl906bnNTJifDQ3sXw==,
-      }
-    dependencies:
-      '@formatjs/intl-localematcher': 0.2.25
-      tslib: 2.6.1
-    dev: false
-
   /@formatjs/ecma402-abstract@1.17.0:
     resolution:
       {
@@ -2629,42 +2640,44 @@ packages:
       tslib: 2.6.1
     dev: false
 
-  /@formatjs/fast-memoize@1.2.1:
+  /@formatjs/intl-displaynames@6.5.0:
     resolution:
       {
-        integrity: sha512-Rg0e76nomkz3vF9IPlKeV+Qynok0r7YZjL6syLz4/urSg0IbjPZCB/iYUMNsYA643gh4mgrX3T7KEIFIxJBQeg==,
+        integrity: sha512-sg/nR8ILEdUl+2sWu6jc1nQ5s04yucGlH1RVfatW8TSJ5uG3Yy3vgigi8NNC/BuhcncUNPWqSpTCSI1hA+rhiw==,
+      }
+    dependencies:
+      '@formatjs/ecma402-abstract': 1.17.0
+      '@formatjs/intl-localematcher': 0.4.0
+      tslib: 2.6.1
+    dev: false
+
+  /@formatjs/intl-enumerator@1.3.2:
+    resolution:
+      {
+        integrity: sha512-bG0XyG0rCTdmoZRJJXe0oF0PTK7PzJjlLM6PmRlnZs6K5DQYHk4D9TNCwtK2e6OxvBI5EFW4Iy3dhQf/UToxPQ==,
       }
     dependencies:
       tslib: 2.6.1
     dev: false
 
-  /@formatjs/icu-messageformat-parser@2.1.0:
+  /@formatjs/intl-getcanonicallocales@2.2.1:
     resolution:
       {
-        integrity: sha512-Qxv/lmCN6hKpBSss2uQ8IROVnta2r9jd3ymUEIjm2UyIkUCHVcbUVRGL/KS/wv7876edvsPe+hjHVJ4z8YuVaw==,
+        integrity: sha512-KooqmyY+Mhq3ioASPzoU6p6Cy9Mx+cWSVQSP6lF+vEW2tiaN90ti08cp82p1dzFschenduOYgPKrNcBpsDi6+g==,
       }
     dependencies:
-      '@formatjs/ecma402-abstract': 1.11.4
-      '@formatjs/icu-skeleton-parser': 1.3.6
       tslib: 2.6.1
     dev: false
 
-  /@formatjs/icu-skeleton-parser@1.3.6:
+  /@formatjs/intl-locale@3.3.2:
     resolution:
       {
-        integrity: sha512-I96mOxvml/YLrwU2Txnd4klA7V8fRhb6JG/4hm3VMNmeJo1F03IpV2L3wWt7EweqNLES59SZ4d6hVOPCSf80Bg==,
+        integrity: sha512-RnL5Bzb1J3ggIOFEeVRAgBUjILHOkP5DX6iH4ALDywhJmT6fArTskPc+b0GreOQtqL6zOb8mU7HxbgRV+P2S5w==,
       }
     dependencies:
-      '@formatjs/ecma402-abstract': 1.11.4
-      tslib: 2.6.1
-    dev: false
-
-  /@formatjs/intl-localematcher@0.2.25:
-    resolution:
-      {
-        integrity: sha512-YmLcX70BxoSopLFdLr1Ds99NdlTI2oWoLbaUW2M406lxOIPzE1KQhRz2fPUkq34xVZQaihCoU29h0KK7An3bhA==,
-      }
-    dependencies:
+      '@formatjs/ecma402-abstract': 1.17.0
+      '@formatjs/intl-enumerator': 1.3.2
+      '@formatjs/intl-getcanonicallocales': 2.2.1
       tslib: 2.6.1
     dev: false
 
@@ -2674,6 +2687,17 @@ packages:
         integrity: sha512-bRTd+rKomvfdS4QDlVJ6TA/Jx1F2h/TBVO5LjvhQ7QPPHp19oPNMIum7W2CMEReq/zPxpmCeB31F9+5gl/qtvw==,
       }
     dependencies:
+      tslib: 2.6.1
+    dev: false
+
+  /@formatjs/intl-pluralrules@5.2.4:
+    resolution:
+      {
+        integrity: sha512-6meo376d8I4zikRFSUxATLnqzGwezmc57SmToP4z1/NQwTHXGe0yIG/ABPbO3QMx7IUkofH/ROP3A4DhtPTpnA==,
+      }
+    dependencies:
+      '@formatjs/ecma402-abstract': 1.17.0
+      '@formatjs/intl-localematcher': 0.4.0
       tslib: 2.6.1
     dev: false
 
@@ -6307,6 +6331,14 @@ packages:
     engines: { node: '>=0.8' }
     dev: false
 
+  /clsx@2.0.0:
+    resolution:
+      {
+        integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==,
+      }
+    engines: { node: '>=6' }
+    dev: true
+
   /collection-visit@1.0.0:
     resolution:
       {
@@ -8062,6 +8094,18 @@ packages:
       - supports-color
     dev: false
 
+  /expo-localization@14.3.0(expo@49.0.6):
+    resolution:
+      {
+        integrity: sha512-TML3TeVtwpfuSNwbhBspC9XsGJaa0TWJNh+UaR/35YP9fQiaJfVWUMSrAq84ba6rY1Pm3kti07LV8UUa505oqg==,
+      }
+    peerDependencies:
+      expo: '*'
+    dependencies:
+      expo: 49.0.6(@babel/core@7.22.9)
+      rtl-detect: 1.0.4
+    dev: false
+
   /expo-modules-autolinking@1.5.0:
     resolution:
       {
@@ -9324,6 +9368,15 @@ packages:
       lru-cache: 6.0.0
     dev: false
 
+  /html-parse-stringify@3.0.1:
+    resolution:
+      {
+        integrity: sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==,
+      }
+    dependencies:
+      void-elements: 3.1.0
+    dev: false
+
   /http-errors@2.0.0:
     resolution:
       {
@@ -9368,6 +9421,15 @@ packages:
       {
         integrity: sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==,
       }
+    dev: false
+
+  /i18next@23.4.1:
+    resolution:
+      {
+        integrity: sha512-07ekE7hbUrbxTYj97VnBzyhKcGURTJC9p4iWTwCVC8t63T+YrgqQmb/n1LBQMivZYwR61pqS+PC0G2rtENycyQ==,
+      }
+    dependencies:
+      '@babel/runtime': 7.22.6
     dev: false
 
   /iconv-lite@0.4.24:
@@ -9522,18 +9584,6 @@ packages:
         integrity: sha512-Ju0Bz/cEia55xDwUWEa8+olFpCiQoypjnQySseKtmjNrnps3P+xfpUmGr90T7yjlVJmOtybRvPXhKMbHr+fWnw==,
       }
     engines: { node: '>= 0.10' }
-
-  /intl-messageformat@9.13.0:
-    resolution:
-      {
-        integrity: sha512-7sGC7QnSQGa5LZP7bXLDhVDtQOeKGeBFGHF2Y8LVBwYZoQZCgWeKoPGTa5GMG8g/TzDgeXuYJQis7Ggiw2xTOw==,
-      }
-    dependencies:
-      '@formatjs/ecma402-abstract': 1.11.4
-      '@formatjs/fast-memoize': 1.2.1
-      '@formatjs/icu-messageformat-parser': 2.1.0
-      tslib: 2.6.1
-    dev: false
 
   /invariant@2.2.4:
     resolution:
@@ -11693,7 +11743,7 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /nativewind@2.0.11(react@18.2.0)(tailwindcss@3.3.3):
+  /nativewind@2.0.11(react@18.2.0)(tailwindcss@3.3.2):
     resolution:
       {
         integrity: sha512-qCEXUwKW21RYJ33KRAJl3zXq2bCq82WoI564fI21D/TiqhfmstZOqPN53RF8qK1NDK6PGl56b2xaTxgObEePEg==,
@@ -11714,7 +11764,7 @@ packages:
       postcss-css-variables: 0.18.0(postcss@8.4.26)
       postcss-nested: 5.0.6(postcss@8.4.26)
       react-is: 18.2.0
-      tailwindcss: 3.3.3
+      tailwindcss: 3.3.2
       use-sync-external-store: 1.2.0(react@18.2.0)
     transitivePeerDependencies:
       - react
@@ -13176,6 +13226,30 @@ packages:
       shallowequal: 1.1.0
     dev: false
 
+  /react-i18next@13.0.3(i18next@23.4.1)(react-dom@18.2.0)(react-native@0.72.3)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-/t4kt4Y2o+21hbvx+o9zpVnmoiud7KLDncyZFGN0U6TGAWYaXdTsp/ytAHFcKKSAODg4noIMaOO3X7bMgCqLHw==,
+      }
+    peerDependencies:
+      i18next: '>= 23.2.3'
+      react: '>= 16.8.0'
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.22.6
+      html-parse-stringify: 3.0.1
+      i18next: 23.4.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-native: 0.72.3(@babel/core@7.22.9)(@babel/preset-env@7.22.9)(react@18.2.0)
+    dev: false
+
   /react-inspector@5.1.1(react@18.2.0):
     resolution:
       {
@@ -13764,6 +13838,13 @@ packages:
     dependencies:
       hash-base: 3.1.0
       inherits: 2.0.4
+
+  /rtl-detect@1.0.4:
+    resolution:
+      {
+        integrity: sha512-EBR4I2VDSSYr7PkBmFy04uhycIpDKp+21p/jARYXlCSjQksTBQcJ0HFUPOO79EPPH5JS6VAhiIQbycf0O3JAxQ==,
+      }
+    dev: false
 
   /run-parallel@1.2.0:
     resolution:
@@ -14766,9 +14847,8 @@ packages:
       {
         integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==,
       }
-    dev: false
 
-  /tailwind-variants@0.1.13(tailwindcss@3.3.3):
+  /tailwind-variants@0.1.13(tailwindcss@3.3.2):
     resolution:
       {
         integrity: sha512-G2M7M74hjq0nAo6QdEfUJgF+0t9DecFUw91GC1P9YTnwMcfB3uChT5U5e2DuNU42xoOz15lzo7r0mPdMzZkylg==,
@@ -14778,13 +14858,13 @@ packages:
       tailwindcss: '*'
     dependencies:
       tailwind-merge: 1.14.0
-      tailwindcss: 3.3.3
+      tailwindcss: 3.3.2
     dev: false
 
-  /tailwindcss@3.3.3:
+  /tailwindcss@3.3.2:
     resolution:
       {
-        integrity: sha512-A0KgSkef7eE4Mf+nKJ83i75TMyq8HqY3qmFIJSWy8bNt0v1lG7jUcpGpoTFxAwYcWOphcTBLPPJg+bDfhDf52w==,
+        integrity: sha512-9jPkMiIBXvPc2KywkraqsUfbfj+dHDb+JPWtSJa9MLFdrPyazI7q6WX2sUrm7R9eVR7qqv3Pas7EvQFzxKnI6w==,
       }
     engines: { node: '>=14.0.0' }
     hasBin: true
@@ -14809,6 +14889,7 @@ packages:
       postcss-load-config: 4.0.1(postcss@8.4.27)
       postcss-nested: 6.0.1(postcss@8.4.27)
       postcss-selector-parser: 6.0.13
+      postcss-value-parser: 4.2.0
       resolve: 1.22.2
       sucrase: 3.34.0
     transitivePeerDependencies:
@@ -15594,20 +15675,6 @@ packages:
       punycode: 1.4.1
       qs: 6.11.2
 
-  /use-intl@2.19.1(react@18.2.0):
-    resolution:
-      {
-        integrity: sha512-nPsXwwJeH+RuKe2ucN+xmRI7DdfjA7WezXYTJD0JZSPvyIyaledIBlVBbnkxanr+3fpIec3cVG6wvouGp9/lJQ==,
-      }
-    engines: { node: '>=10' }
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@formatjs/ecma402-abstract': 1.17.0
-      intl-messageformat: 9.13.0
-      react: 18.2.0
-    dev: false
-
   /use-latest-callback@0.1.6(react@18.2.0):
     resolution:
       {
@@ -15745,6 +15812,14 @@ packages:
       {
         integrity: sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==,
       }
+
+  /void-elements@3.1.0:
+    resolution:
+      {
+        integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==,
+      }
+    engines: { node: '>=0.10.0' }
+    dev: false
 
   /walker@1.0.8:
     resolution:

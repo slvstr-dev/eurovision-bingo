@@ -30,7 +30,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     favicon: './src/assets/favicon.png',
     bundler: 'metro',
   },
-  plugins: ['expo-router'],
+  plugins: ['expo-router', 'expo-localization'],
   experiments: {
     tsconfigPaths: true,
   },
