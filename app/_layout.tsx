@@ -4,6 +4,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import { Platform } from 'react-native';
 
+import { Tabs } from '@/components/layout/Tabs/Tabs';
 import en from '@/locales/en/translation.json';
 import nl from '@/locales/nl/translation.json';
 
@@ -39,17 +40,11 @@ if (isAndroid || isHermes) {
   require('@formatjs/intl-displaynames/locale-data/nl');
 }
 
-export default function Layout() {
+export default function RootLayout() {
   return (
     <Stack
       screenOptions={{
-        headerStyle: {
-          backgroundColor: 'rgb(245 158 11)',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
+        headerShown: false,
       }}
     />
   );

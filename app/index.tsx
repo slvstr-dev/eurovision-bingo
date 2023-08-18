@@ -1,16 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
+import { Redirect } from 'expo-router';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-
-import { LocaleToggle } from '@/components/ui/LocaleToggle/LocaleToggle';
+import { View } from 'react-native';
 
 const storybookEnabled = process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === 'true';
 
 export default function IndexPage() {
-  const { t } = useTranslation();
-
   if (storybookEnabled) {
     const StorybookUI = require('../.storybook').default;
 
@@ -21,13 +15,29 @@ export default function IndexPage() {
     );
   }
 
-  return (
-    <SafeAreaView className="flex-1 items-center justify-center bg-grey-200">
-      <Text className="text-5xl font-semibold">{t('pages.home.title', { name: 'Sylvester' })}</Text>
+  return <Redirect href="/cats" />;
 
-      <LocaleToggle />
+  // return (
+  // <>
+  //   <Stack.Screen
+  //     options={{
+  //       title: 'Welcome',
+  //     }}
+  //   />
 
-      <StatusBar style="auto" />
-    </SafeAreaView>
-  );
+  //   <View style={styles.container}>
+  //     <Text style={styles.title}>Cat X Dog</Text>
+
+  //     <Text style={styles.subtitle}>Welcome</Text>
+  //   </View>
+  // </>
+
+  // <SafeAreaView className="flex-1 items-center justify-center bg-grey-200">
+  //   <Text className="text-5xl font-semibold">
+  //     {t('pages.home.title', { name: 'Sylvester' })}
+  //   </Text>
+
+  //   <LocaleToggle />
+  // </SafeAreaView>
+  // );
 }
