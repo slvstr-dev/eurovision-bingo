@@ -34,4 +34,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   experiments: {
     tsconfigPaths: true,
   },
+  extra: {
+    eas: {
+      projectId: '6633ad9d-8377-43b5-ab9d-c10cef2195f5',
+    },
+  },
 });
