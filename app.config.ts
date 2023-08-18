@@ -6,6 +6,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   slug: 'eurovision-bingo',
   scheme: 'eurovision-bingo',
   version: '1.0.0',
+  owner: 'slvstr',
   orientation: 'portrait',
   icon: './src/assets/icon.png',
   userInterfaceStyle: 'light',
